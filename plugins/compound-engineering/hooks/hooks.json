@@ -1,0 +1,27 @@
+{
+  "description": "Compound engineering hooks - Meta-workflow enforcement and plan archiving",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/meta-workflow-enforcer.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/auto-archive-plans.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
