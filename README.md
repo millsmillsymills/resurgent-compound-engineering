@@ -115,6 +115,41 @@ Compound engineering inverts this. 80% is in planning and review, 20% is in exec
 - Codify knowledge so it's reusable
 - Keep quality high so future changes are easy
 
+## Resurgent Fork: Upstream Sync
+
+This is a fork of [EveryInc/compound-engineering-plugin](https://github.com/EveryInc/compound-engineering-plugin) with custom hooks and skills for the resurgent homelab project.
+
+### Syncing with upstream
+
+```bash
+cd /mnt/user/code/resurgent-compound-engineering
+git fetch upstream
+git checkout main
+git merge upstream/main
+# Resolve any conflicts in hooks/ and ported skills/
+git push origin main
+```
+
+Then update the local marketplace cache:
+
+```bash
+claude plugin marketplace update resurgent-marketplace
+claude plugin update compound-engineering@resurgent-marketplace
+```
+
+EveryInc releases on a bi-weekly cadence. Check [upstream releases](https://github.com/EveryInc/compound-engineering-plugin/releases) periodically.
+
+### Custom additions (not in upstream)
+
+- `plugins/compound-engineering/hooks/` — meta-workflow-enforcer, auto-archive-plans
+- `plugins/compound-engineering/skills/quality-severity/` — P1/P2/P3 classification
+- `plugins/compound-engineering/skills/plan-manager/` — Plan lifecycle management
+- `plugins/compound-engineering/skills/skill-architect/` — Meta-orchestrator
+- `plugins/compound-engineering/skills/skill-reviewer/` — Quality scoring
+- `plugins/compound-engineering/skills/skill-optimizer/` — PDA refactoring
+- `plugins/compound-engineering/workflows/meta-workflow.md` — Adaptive task execution
+- `.claude-plugin/marketplace.json` — Marketplace identity (resurgent-marketplace)
+
 ## Learn More
 
 - [Full component reference](plugins/compound-engineering/README.md) - all agents, commands, skills
