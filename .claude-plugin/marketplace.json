@@ -1,8 +1,8 @@
 {
-  "name": "every-marketplace",
+  "name": "resurgent-marketplace",
   "owner": {
-    "name": "Kieran Klaassen",
-    "url": "https://github.com/kieranklaassen"
+    "name": "millsmillsymills",
+    "url": "https://github.com/millsmillsymills"
   },
   "metadata": {
     "description": "Plugin marketplace for Claude Code extensions",
